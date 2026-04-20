@@ -1,0 +1,152 @@
+.techstack {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  height: auto;
+  min-height: auto;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  z-index: 10;
+}
+
+.techstack h2 {
+  font-size: 80px;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 80px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* For larger screens, force 4 columns */
+@media screen and (min-width: 1200px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.tech-card {
+  position: relative;
+  background: rgba(15, 17, 23, 0.6);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              border-color 0.4s ease, 
+              background 0.4s ease,
+              box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 240px;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* Mouse follow glow effect wrapper */
+.tech-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(94, 234, 212, 0.07),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+}
+
+.tech-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(94, 234, 212, 0.3);
+  background: rgba(20, 24, 32, 0.8);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+              0 0 40px rgba(94, 234, 212, 0.05);
+}
+
+.tech-icon-wrapper {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.tech-card:hover .tech-icon-wrapper {
+  background: rgba(94, 234, 212, 0.1);
+  border-color: rgba(94, 234, 212, 0.2);
+  transform: scale(1.05);
+}
+
+.tech-icon {
+  font-size: 2rem;
+  color: #fff;
+  transition: color 0.4s ease;
+}
+
+.tech-card:hover .tech-icon {
+  color: var(--accentColor);
+}
+
+.tech-info {
+  z-index: 2;
+  position: relative;
+}
+
+.tech-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #eae5ec;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.tech-desc {
+  font-size: 0.95rem;
+  color: rgba(234, 229, 236, 0.6);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .techstack h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .tech-card {
+    padding: 2rem 1.5rem;
+    min-height: 200px;
+  }
+}

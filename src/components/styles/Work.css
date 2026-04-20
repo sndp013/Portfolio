@@ -196,4 +196,9 @@
     width: 260px;
     height: 180px;
   }
+  .work-section h2 {
+    font-size: 40px;
+    line-height: 45px;
+    margin-bottom: 50px;
+  }
 }

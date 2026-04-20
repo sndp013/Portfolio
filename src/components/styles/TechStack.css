@@ -150,3 +150,10 @@
     min-height: 200px;
   }
 }
+@media screen and (max-width: 500px) {
+  .techstack h2 {
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+  }
+}
